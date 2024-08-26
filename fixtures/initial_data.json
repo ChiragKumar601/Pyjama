@@ -1,0 +1,68 @@
+[
+    {
+        "model": "recipe.recipecategory",
+        "pk": 1,
+        "fields": {
+            "name": "Appetizer"
+        }
+    },
+    {
+        "model": "recipe.recipecategory",
+        "pk": 2,
+        "fields": {
+            "name": "Main Course"
+        }
+    },
+    {
+        "model": "recipe.recipecategory",
+        "pk": 3,
+        "fields": {
+            "name": "Dessert"
+        }
+    },
+    {
+        "model": "users.customuser",
+        "pk": 1,
+        "fields": {
+            "username": "john_doe",
+            "email": "john@example.com",
+            "password": "pbkdf2_sha256$260000$example$salt",  
+            "first_name": "John",
+            "last_name": "Doe"
+        }
+    },
+    {
+        "model": "recipe.recipe",
+        "pk": 1,
+        "fields": {
+            "author": 1,
+            "category": 1,
+            "picture": "",
+            "title": "Bruschetta",
+            "desc": "A tasty Italian appetizer",
+            "cook_time": "00:15:00",
+            "ingredients": "Tomatoes, Basil, Garlic, Olive Oil",
+            "procedure": "1. Chop tomatoes and basil. 2. Mix with garlic and olive oil.",
+            "created_at": "2024-08-17T10:00:00Z",
+            "updated_at": "2024-08-17T10:00:00Z"
+        }
+    },
+    {
+        "model": "recipe.recipelike",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "recipe": 1,
+            "created": "2024-08-17T10:00:00Z"
+        }
+    },
+    {
+        "model": "users.profile",
+        "pk": 1,
+        "fields": {
+            "user": 1,
+            "avatar": "",
+            "bio": "Food enthusiast and recipe creator"
+        }
+    }
+]
