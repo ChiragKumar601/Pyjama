@@ -267,17 +267,17 @@ LOGGING = {
         'send_mail_app': {
             'handlers': ['file', 'error_file'],
             'level': 'DEBUG',
-            'propagate': False,
+            'propagate': True,
         },
         'recipe': {
             'handlers': ['file', 'error_file'],
             'level': 'DEBUG',
-            'propagate': False,
+            'propagate': True,
         },
         'users': {
             'handlers': ['file', 'error_file'],
             'level': 'DEBUG',
-            'propagate': False,
+            'propagate': True,
         },
     },
 }
