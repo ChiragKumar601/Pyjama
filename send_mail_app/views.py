@@ -14,11 +14,11 @@ logger = logging.getLogger(__name__)
 EMAIL_HOST_USER = base.EMAIL_HOST_USER
 
 
-@shared_task
+
 def send_email_view(request):
     user_email_messages = {}
     users = CustomUser.objects.all()
-    
+    x = []
   
     try:
         logger.info(f"Found {users.count()} users.")
@@ -47,6 +47,7 @@ def send_email_view(request):
         
         # Send emails asynchronously using Celery
         for email, message in user_email_messages.items():
+            x.append(email)
             logger.info(f"Sending email to {email}.")
             send_email_task.delay(
                 subject="Your Recipe Likes Summary",
@@ -58,7 +59,7 @@ def send_email_view(request):
 
         logger.info(f'Emails sent asynchronously! Total users notified: {len(user_email_messages)}.')
 
-        return HttpResponse(f'Emails sent asynchronously! Total users notified: {len(user_email_messages)}')
+        return HttpResponse(f'Emails sent asynchronously! Total users notified: {len(user_email_messages)}, {x}')
 
     except Exception as e:
         logger.error(f"An error occurred: {str(e)}", exc_info=True)

@@ -8,7 +8,7 @@ os.environ.setdefault(
     'config.settings'
 )
 
-app = Celery('recipe-api')
+app = Celery('pyjama')
 
 app.config_from_object('django.conf:settings', namespace='CELERY')
 
@@ -22,9 +22,9 @@ app.autodiscover_tasks()
 # configured so we can adjust scheduling 
 # in the Django admin to manage all 
 # Periodic Tasks like below
-app.conf.beat_schedule = {
-    'send-email': {
-        'task': 'send_mail_app.views.send_email_view',
-        'schedule': crontab(hour=14, minute=10),
-    },
-}
+# app.conf.beat_schedule = {
+#     'send-email': {
+#         'task': 'send_mail_app.views.send_email_view',
+#         'schedule': crontab(hour=14, minute=10),
+#     },
+# }
